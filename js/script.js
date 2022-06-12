@@ -1,11 +1,14 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
+var lose = 0;
 
 const jump = () => {
     mario.classList.add('to-jump');
+    if (lose == 0) mario.src = 'assets/images/mario-jump.png';
 
     setTimeout(() => {
         mario.classList.remove('to-jump')
+        if (lose == 0) mario.src = 'assets/images/mario.gif';
     }, 500);
 }
 
@@ -13,9 +16,8 @@ const loop = setInterval(() => {
     const pipePosition = pipe.offsetLeft;
     const marioPosition = getComputedStyle(mario).bottom.replace('px', '');
 
-    console.log(marioPosition);
-
     if (pipePosition <= 70 && marioPosition <= 75) {
+        lose = 1;
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
 
