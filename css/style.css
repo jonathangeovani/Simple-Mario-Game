@@ -5,13 +5,42 @@
 }
 
 body {
-    margin-top: 50px;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+}
+
+nav {
+    padding: 5px 0px ;
+    width: 100%;
+    background-color: #000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li a:hover {
+    color: #87ceeb;
+}
+
+header {
+    margin-top: 10px;
 }
 
 .board {
-    width: 100%;
-    height: 500px;
+    width: 800px;
+    height: 450px;
     border-bottom: 20px solid rgb(35, 160, 35);
     background: linear-gradient(#87ceeb, #e0f6ff);
     margin: 0 auto;
@@ -23,7 +52,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 60px;
-    animation: pipe 2s infinite linear;
+    animation: pipe 1.7s infinite linear;
 }
 
 .mario {
@@ -35,11 +64,33 @@ body {
 .clouds {
     position: absolute;
     width: 500px;
-    animation: clouds-movement 20s infinite linear;
+    animation: clouds-movement 15s infinite linear;
 }
 
 .to-jump {
     animation: jumping 600ms ease-out;
+}
+
+.descricao {
+    margin-top: 50px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.descricao h3 {
+    font-size: 22px;
+    text-align: center;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 5px 0px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    text-align: center;
 }
 
 @keyframes pipe {
@@ -73,5 +124,25 @@ body {
     }
     to {
         right: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    .board {
+        width: 100%;
+    }
+
+    .pipe {
+        animation: pipe 1.3s infinite linear;
+    }
+
+    .clouds {
+        animation: clouds-movement 10s infinite linear;
+    }
+}
+
+@media (max-width: 550px) {
+    .pipe {
+        animation: pipe 1s infinite linear;
     }
 }
